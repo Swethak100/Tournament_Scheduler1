@@ -1,4 +1,3 @@
-const { Client } = require('pg');
 function schedule() {
     const startDate = new Date(document.getElementById('mydate').value);
     const teams = document.querySelectorAll('.t');
@@ -12,37 +11,39 @@ function schedule() {
         const matchDateString = formatDate(matchDate);
         matchInfoArray.push([teamName, matchDateString]);
     }
+    
     myFunction();
     document.getElementById('sbutton2').addEventListener('click', function () {
         window.location.href = 'match_info.html';
         sessionStorage.setItem('matchInfoArray', JSON.stringify(matchInfoArray));
     });
-  
-
-    const client = new Client({
-        user: 'postgres',
-        host: 'localhost',
-        database: 'teams', // Replace with your database name
-        password: '1002',
-        port: 5432, // Default PostgreSQL port
-    });
-
-    client.connect();
-
-    for (const [teamName, matchDateString] of matchInfoArray) {
-        const query = {
-            text: 'INSERT INTO teamdetail(teamname, date) VALUES($1, $2)',
-            values: [teamName, matchDateString],
+    document.getElementById('scheduleForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+    
+        const teamName1 = document.querySelector('.teamName').value;
+        const matchDate1 = document.querySelector('.matchDate').value;
+    
+        const data = {
+            matchInfoArray: [[teamName1, matchDate1]],
         };
-
-        client.query(query, (err, res) => {
-            if (err) {
-                console.error('Error executing query', err);
-            }
+    
+        fetch('/schedule', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.message);
+        })
+        .catch(error => {
+            console.error('Error:', error);
         });
-    }
+    });
+    
 
-    client.end();
     console.log(matchInfoArray);
 }
 
