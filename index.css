@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.td {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.date {
+    margin: 10px;
+}
+
+#mydate {
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.teams {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.t {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+}
+
+h4 {
+    margin: 0;
+    font-size: 20px;
+}
+
+p {
+    margin: 10px 0;
+    color: gray;
+}
+
+.schedule {
+    font-style: italic;
+}
+
+#sbutton,#sbutton2 {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+#sbutton:hover {
+    background-color: #0056b3;
+}
+#sbutton2:hover {
+    background-color: #0056b3;
+}
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+  }
+  
+  #snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }

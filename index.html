@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+
+
+</head>
+<body>
+    <div class="td">Cricket Tournament Scheduler</div>
+    <div class="date">
+        <input type="date" id="mydate">
+    </div>
+    <button onclick="schedule()" id="sbutton">Schedule</button>
+    <button id="sbutton2">See Match Info</button>
+    <div class="teams">
+        <div class="t">
+            <p>
+                <h4>Team A</h4>
+                <p>Captain: Dhoni</p>
+                <div class="schedule"></div>
+            </p>
+        </div>
+        <div class="t">
+            <p>
+                <h4>Team B</h4>
+                <p>Captain : Kohli</p>
+                <div class="schedule"></div>
+            </p>
+        </div>
+        <div class="t">
+            <p>
+                <h4>Team C</h4>
+                <p>Captain : Raina</p>
+                <div class="schedule"></div>
+            </p>
+        </div>
+        <div class="t">
+            <p>
+                <h4>Team D</h4>
+                <p>Captain : Shreyas</p>
+                <div class="schedule"></div>
+            </p>
+        </div>
+        <div class="t">
+            <p>
+                <h4>Team E</h4>
+                <p>Captain : Rohit</p>
+                <div class="schedule"></div>
+            </p>
+        </div>
+        <div class="t">
+            <p>
+                <h4>Team F</h4>
+                <p>Captain : Hardik</p>
+                <div class="schedule"></div>
+            </p>
+        </div>
+    </div>
+    <div id="snackbar">Match has been scheduled</div>
+    <script src="schedule.js"></script>
+</body>
+</html>
